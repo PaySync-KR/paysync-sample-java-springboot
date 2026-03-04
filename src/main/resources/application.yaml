@@ -2,6 +2,6 @@ server:
   port: 8080
 
 paysync:
-  base-url: https://dev-api-eunhyun.paysync.kr
-  api-key: sk_live_iumxra26hbttgcfuqjtsu9ea
-  webhook-signing-secret: whsec_ft4935a7c6dwsejf6fmdru7613q6vwu3
+  base-url: https:/api.paysync.kr
+  api-key:
+  webhook-signing-secret:

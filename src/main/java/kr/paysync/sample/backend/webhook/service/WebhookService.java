@@ -1,8 +1,9 @@
 package kr.paysync.sample.backend.webhook.service;
 
-import org.springframework.http.HttpHeaders;
+import java.util.List;
+import java.util.Map;
 
 public interface WebhookService {
 
-    void handleWebhook(HttpHeaders headers, String rawBody);
+    void handleWebhook(Map<String, List<String>> headers, String rawBody);
 }
