@@ -11,7 +11,7 @@ public record Transaction(
         @Nullable String matchedInvoiceId,
         int amount,
         String description,
-        boolean hidden,
+        @Nullable Boolean hidden,
         Date receivedAt,
         @Nullable Date matchedAt,
         Date createdAt
