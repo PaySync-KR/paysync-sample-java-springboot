@@ -33,18 +33,18 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public List<Transaction> getAll(@Nullable String bankAccountId, boolean hidden, boolean matched, @Nullable String dateAfter, @Nullable String dateBefore, long offset, int limit) {
+    public List<Transaction> getAll(@Nullable String bankAccountId, @Nullable Boolean hidden, @Nullable Boolean matched, @Nullable String dateAfter, @Nullable String dateBefore, long offset, int limit) {
         PaginatedApiResponse<List<Transaction>> response =
                 client.get()
                         .uri(uriBuilder -> uriBuilder
                                 .path("/v1/invoices")
                                 .queryParamIfPresent("bankAccountId", Optional.ofNullable(bankAccountId))
-                                .queryParamIfPresent("hidden", Optional.of(hidden))
-                                .queryParamIfPresent("matched", Optional.of(matched))
+                                .queryParamIfPresent("hidden", Optional.ofNullable(hidden))
+                                .queryParamIfPresent("matched", Optional.ofNullable(matched))
                                 .queryParamIfPresent("dateAfter", Optional.ofNullable(dateAfter))
                                 .queryParamIfPresent("dateBefore", Optional.ofNullable(dateBefore))
-                                .queryParamIfPresent("offset", Optional.of(offset))
-                                .queryParamIfPresent("limit", Optional.of(limit))
+                                .queryParam("offset", offset)
+                                .queryParam("limit", limit)
                                 .build()
                         )
                         .retrieve()

@@ -23,8 +23,8 @@ public class TransactionController {
     @GetMapping
     public ResponseEntity<List<Transaction>> getAll(
             @RequestParam(required = false) String bankAccountId,
-            @RequestParam(required = false) boolean hidden,
-            @RequestParam(required = false) boolean matched,
+            @RequestParam(required = false) Boolean hidden,
+            @RequestParam(required = false) Boolean matched,
             @RequestParam(required = false) String dateAfter,
             @RequestParam(required = false) String dateBefore,
             @RequestParam(defaultValue = "0") long offset,
