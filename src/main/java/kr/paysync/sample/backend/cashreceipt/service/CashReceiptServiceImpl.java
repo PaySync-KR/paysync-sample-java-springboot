@@ -51,7 +51,7 @@ public class CashReceiptServiceImpl implements CashReceiptService {
                 .body(new ParameterizedTypeReference<>() {});
 
         if (response == null || !response.code().equals("OK")) {
-            throw new IllegalStateException("현금영수증 취소 응답이 올바르지 않습니다.");
+            throw new IllegalStateException("올바르지 않은 응답입니다.");
         }
     }
 }
