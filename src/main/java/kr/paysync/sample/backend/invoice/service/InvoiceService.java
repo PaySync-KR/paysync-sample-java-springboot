@@ -14,7 +14,7 @@ public interface InvoiceService {
 
     Invoice get(String id);
 
-    List<Invoice> getAll(boolean paid, @Nullable String rawDateAfter, @Nullable String rawDateBefore, long offset, int limit);
+    List<Invoice> getAll(@Nullable Boolean paid, @Nullable String rawDateAfter, @Nullable String rawDateBefore, long offset, int limit);
 
     Invoice markAsPaid(String id);
 }

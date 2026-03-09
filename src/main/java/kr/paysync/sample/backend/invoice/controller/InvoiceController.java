@@ -35,7 +35,7 @@ public class InvoiceController {
 
     @GetMapping
     public ResponseEntity<List<Invoice>> getAll(
-            @RequestParam(required = false) boolean paid,
+            @RequestParam(required = false) Boolean paid,
             @RequestParam(required = false) String dateAfter,
             @RequestParam(required = false) String dateBefore,
             @RequestParam(defaultValue = "0") long offset,

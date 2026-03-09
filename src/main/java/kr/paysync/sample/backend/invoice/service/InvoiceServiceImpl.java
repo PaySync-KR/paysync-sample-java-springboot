@@ -61,12 +61,12 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
-    public List<Invoice> getAll(boolean paid, @Nullable String dateAfter, @Nullable String dateBefore, long offset, int limit) {
+    public List<Invoice> getAll(@Nullable Boolean paid, @Nullable String dateAfter, @Nullable String dateBefore, long offset, int limit) {
         PaginatedApiResponse<List<Invoice>> response =
                 client.get()
                         .uri(uriBuilder -> uriBuilder
                                 .path("/v1/invoices")
-                                .queryParam("paid", paid)
+                                .queryParamIfPresent("paid", Optional.ofNullable(paid))
                                 .queryParamIfPresent("dateAfter", Optional.ofNullable(dateAfter))
                                 .queryParamIfPresent("dateBefore", Optional.ofNullable(dateBefore))
                                 .queryParam("offset", offset)
