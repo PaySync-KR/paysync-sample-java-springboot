@@ -25,7 +25,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .retrieve()
                 .body(new ParameterizedTypeReference<>() {});
 
-        if (response == null || response.data() == null || !"OK".equals(response.code())) {
+        if (response == null || response.data() == null || !response.code().equals("OK")) {
             throw new IllegalStateException("올바르지 않은 응답입니다.");
         }
 
@@ -50,7 +50,7 @@ public class TransactionServiceImpl implements TransactionService {
                         .retrieve()
                         .body(new ParameterizedTypeReference<>() {});
 
-        if (response == null || response.data() == null || !"OK".equals(response.code())) {
+        if (response == null || response.data() == null || !response.code().equals("OK")) {
             throw new IllegalStateException("올바르지 않은 응답입니다.");
         }
 

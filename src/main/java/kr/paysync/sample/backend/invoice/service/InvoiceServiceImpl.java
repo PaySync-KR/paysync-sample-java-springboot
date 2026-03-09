@@ -27,7 +27,7 @@ public class InvoiceServiceImpl implements InvoiceService {
                 .retrieve()
                 .body(new ParameterizedTypeReference<>() {});
 
-        if (response == null || response.data() == null || !"CREATED".equals(response.code())) {
+        if (response == null || response.data() == null || !response.code().equals("CREATED")) {
             throw new IllegalStateException("올바르지 않은 응답입니다.");
         }
 
@@ -41,7 +41,7 @@ public class InvoiceServiceImpl implements InvoiceService {
                 .retrieve()
                 .body(new ParameterizedTypeReference<>() {});
 
-        if (response == null || !"CREATED".equals(response.code())) {
+        if (response == null || !response.code().equals("CREATED")) {
             throw new IllegalStateException("올바르지 않은 응답입니다.");
         }
     }
@@ -53,7 +53,7 @@ public class InvoiceServiceImpl implements InvoiceService {
                 .retrieve()
                 .body(new ParameterizedTypeReference<>() {});
 
-        if (response == null || response.data() == null || !"OK".equals(response.code())) {
+        if (response == null || response.data() == null || !response.code().equals("OK")) {
             throw new IllegalStateException("올바르지 않은 응답입니다.");
         }
 
@@ -66,17 +66,17 @@ public class InvoiceServiceImpl implements InvoiceService {
                 client.get()
                         .uri(uriBuilder -> uriBuilder
                                 .path("/v1/invoices")
-                                .queryParamIfPresent("paid", Optional.of(paid))
+                                .queryParam("paid", Optional.of(paid))
                                 .queryParamIfPresent("dateAfter", Optional.ofNullable(dateAfter))
                                 .queryParamIfPresent("dateBefore", Optional.ofNullable(dateBefore))
-                                .queryParamIfPresent("offset", Optional.of(offset))
-                                .queryParamIfPresent("limit", Optional.of(limit))
+                                .queryParam("offset", Optional.of(offset))
+                                .queryParam("limit", Optional.of(limit))
                                 .build()
                         )
                         .retrieve()
                         .body(new ParameterizedTypeReference<>() {});
 
-        if (response == null || response.data() == null || !"OK".equals(response.code())) {
+        if (response == null || response.data() == null || !response.code().equals("OK")) {
             throw new IllegalStateException("올바르지 않은 응답입니다.");
         }
 
@@ -90,7 +90,7 @@ public class InvoiceServiceImpl implements InvoiceService {
                 .retrieve()
                 .body(new ParameterizedTypeReference<>() {});
 
-        if (response == null || response.data() == null || !"OK".equals(response.code())) {
+        if (response == null || response.data() == null || !response.code().equals("OK")) {
             throw new IllegalStateException("올바르지 않은 응답입니다.");
         }
 
