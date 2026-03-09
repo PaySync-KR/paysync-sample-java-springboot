@@ -41,7 +41,7 @@ public class InvoiceServiceImpl implements InvoiceService {
                 .retrieve()
                 .body(new ParameterizedTypeReference<>() {});
 
-        if (response == null || !response.code().equals("CREATED")) {
+        if (response == null || !response.code().equals("DELETED")) {
             throw new IllegalStateException("올바르지 않은 응답입니다.");
         }
     }
