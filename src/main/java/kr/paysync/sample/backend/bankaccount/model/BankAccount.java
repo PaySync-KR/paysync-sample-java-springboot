@@ -8,6 +8,7 @@ import java.util.Date;
 
 public record BankAccount(
         String id,
+        Boolean active,
         String ownerId,
         String alias,
         BankAccountProvider provider,
