@@ -22,8 +22,8 @@ public class InvoiceController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.issue(request));
     }
 
-    @DeleteMapping
-    public ResponseEntity<Void> delete(@RequestParam String id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
