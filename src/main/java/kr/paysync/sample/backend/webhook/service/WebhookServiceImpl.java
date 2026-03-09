@@ -21,6 +21,8 @@ public class WebhookServiceImpl implements WebhookService {
         try {
             Webhook webhook = new Webhook(properties.webhookSigningSecret());
             webhook.verify(rawBody, headers);
+
+            log.info("웹훅 수신 성공: {}", rawBody);
         } catch (Exception e) {
             throw new RuntimeException("웹훅 검증 실패: " + e.getMessage(), e);
         }
